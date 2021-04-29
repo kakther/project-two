@@ -2,10 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/app.css">
+
     
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to REKHAFUND!</h1>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="header">
+        <h1>Welcome to ZHARAFUND!</h1>
+
+        <p>Conneting awesome donors with good causes</p>
+        <h2>
+            The Reward of Goodnes <br/> is Nothing but Goodness
+        </h2> 
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <ul>
+                <li>
+                    <% for(let i = 0; i < fund.length; i++){ %> 
+                        <a href="/fund/<%= fund[i].id; %> ">
+                        <h3><%= fund[i].name %> </h3>
+                        </a>
+                        <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> <br>
+                </li>
+                    <% } %> 
+            </ul>
+        </div>   
+    </div>
+    <div class="message">
+        <h1>GIVING IS A NEVER-ENDING DEED</h1>
+        <P>
+            Those who spend their wealth in charity day and night, secretly and openly--their <br>
+            reward is with their Lord, and there will be no fear for them, nor will they grieve.
+        </P>
+    </div>
 </body>
 </html>

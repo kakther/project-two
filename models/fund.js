@@ -5,7 +5,7 @@ const fundSchema = new mongoose.Schema(
         name: { type: String, required: true},
         description: { type: String, required: true},
         img: String,
-        address: { type: String, required: true},
+        address: String,
         amount: { type: Number, required: {$gt: 0}}
 
 },

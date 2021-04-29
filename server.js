@@ -6,6 +6,8 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const Fund = require('./models/fund.js')
+
 require('dotenv').config()
 //___________________
 //Port
@@ -38,7 +40,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
+app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
@@ -49,13 +51,47 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 
 // INDEX
-app.get('/', (req, res) => {
-    res.render('index.ejs');
+app.get('/fund', (req, res) => {
+    Fund.find({}, (err, allFund) => {
+        res.render(
+            'index.ejs', {
+                fund: allFund
+            
+        });
+    })
 })
 // NEW 
+app.get('/new' , (req, res) => {
+    res.render(
+        'new.ejs',
+        )
+})
+
 // SHOW
+app.get('/fund/:id', (req, res) => {
+    Fund.findById(req.params.id, (err, foundFund) => {
+        res.render('show.ejs',
+         {
+             fund: foundFund
+         })
+    })
+})
+
+
 // GET EDIT
 // CREATE 
+app.post('/fund', (req, res) => {
+    Fund.create(req.body, (err, createOrganization) => {
+        res.redirect('/fund')
+    })
+})
+
+
+// if(err){
+//     console.log(err)
+// }else{
+//     console.log(createOrganization)
+// }
 // UPDATE(PUT)
 // DELETE
 // DONATION
