@@ -1,30 +1,24 @@
-//___________________
-//Dependencies
-//___________________
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+
+//CONFIGURATION
+require('dotenv').config()
 const app = express ();
 const db = mongoose.connection;
 const Fund = require('./models/fund.js')
-
-require('dotenv').config()
-//___________________
-//Port
-//___________________
-// Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3003;
 
-//___________________
-//Database
-//___________________
+
+// DATABASE
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
-
-// Connect to Mongo &
-// Fix Depreciation Warnings from Mongoose
-// May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+mongoose.connect(MONGODB_URI , 
+    { 
+        useNewUrlParser: true, 
+        useUnifiedTopology: true, 
+        useFindAndModify: false 
+    }
 );
 
 // Error / success
@@ -32,19 +26,17 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
-//___________________
+
 //Middleware
-//___________________
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(methodOverride('_method'));
+
 
 //use public folder for static assets
 app.use(express.static('public'));
 
-// populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
-//use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
 //___________________
@@ -61,7 +53,8 @@ app.get('/fund', (req, res) => {
     })
 })
 // NEW 
-app.get('/new' , (req, res) => {
+
+app.get('/fund/new', (req, res) => {
     res.render(
         'new.ejs',
         )
@@ -79,21 +72,43 @@ app.get('/fund/:id', (req, res) => {
 
 
 // GET EDIT
-// CREATE 
-app.post('/fund', (req, res) => {
-    Fund.create(req.body, (err, createOrganization) => {
-        res.redirect('/fund')
+app.get('/fund/:id/edit', (req, res) => {
+    Fund.findById(req.params.id, (err, foundFund) => {
+        res.render(
+            'edit.ejs',
+            {
+                edit: foundFund
+            }
+            )
     })
 })
 
-
+// CREATE 
+app.post('/fund', (req, res) => {
+    Fund.create(req.body, (err, createOrganization) => {
 // if(err){
 //     console.log(err)
 // }else{
 //     console.log(createOrganization)
 // }
+        res.redirect('/fund')
+    })
+})
+
 // UPDATE(PUT)
+app.put('/fund/:id', (req, res) => {
+    // console.log('hello', req.body)
+    Fund.findByIdAndUpdate(req.params.id, req.body, (err, foundFund) => {
+        // if(err){
+        //     console.log(err);
+        // }else{
+        //     console.log(foundProduct)
+        // }
+        res.redirect('/fund')
+    })
+})
 // DELETE
+
 // DONATION
 //___________________
 //localhost:3000
@@ -101,7 +116,6 @@ app.post('/fund', (req, res) => {
 //   res.send('Hello World!');
 // });
 
-//___________________
+
 //Listener
-//___________________
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));

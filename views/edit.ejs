@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title></title>
+</head>
+<body>
+    <h1>Edit Page</h1>
+    <form action="/fund/<%=edit.id%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=edit.name%>"/><br>
+        Description: <input type="text" name="description" value="<%=edit.description%>"/><br>
+        Amount: <input type=number name=amount value="<%=edit.amount%>" /> <br>
+
+        Is Ready To Edit:
+            <input type="checkbox" 
+            name="readyToEdit"
+            <% if(edit.readyToEdit === false) {%> 
+            checked
+            <% } %> 
+            /><br/>
+            <input type="submit" value="Edit the charity"/>
+    </form>
+</body>
+</html>

@@ -11,6 +11,9 @@
     <nav>
         <%- include ('../partials/nav.ejs') %>
     </nav>
+    <nav>
+        <a href="/fund/new">Add a New Charity</a>
+    </nav>
     <div class="header">
         <h1>Welcome to ZHARAFUND!</h1>
 
@@ -28,7 +31,12 @@
                         <a href="/fund/<%= fund[i].id; %> ">
                         <h3><%= fund[i].name %> </h3>
                         </a>
-                        <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> <br>
+                        <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> 
+                        <h2><%= fund[i].name%> </h2>
+                        <p><%= fund[i].address%> </p>
+                        <button>INFO</button>
+                       
+
                 </li>
                     <% } %> 
             </ul>
@@ -40,6 +48,9 @@
             Those who spend their wealth in charity day and night, secretly and openly--their <br>
             reward is with their Lord, and there will be no fear for them, nor will they grieve.
         </P>
+    </div>
+    <div class="footer">
+        <%- include ('../partials/footer.ejs') %>
     </div>
 </body>
 </html>

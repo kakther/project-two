@@ -2,17 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
+
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <img src="<%= fund.img%> " alt="Picture of <%= fund.name%> "> <br/>
-            <h2><%= fund.name%></h2> <br/>
-            <p><%= fund.description%></p> <br/>
-            <h4><%= fund.amount%> </h4><br/>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <nav>
+        <a href="/fund/">Back to Charity</a>
+    </nav>
+    <div class="show-container">
+        <div class="show-card">
+            <img src="<%= fund.img%> " alt="">
+            <h2><%= fund.name%> </h2>
+            <p><%= fund.description%> </p>
+            <h5><%= fund.address%> </h5>
+            <p>AMOUNT: $<%= fund.amount%> </p>
 
+            <a href="/fund/<%=fund.id%>/edit">Edit the Charity</a>
         </div>
     </div>
+   
 </body>
 </html>

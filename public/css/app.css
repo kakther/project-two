@@ -7,7 +7,7 @@ body{
     margin: 0;
 }
 nav ul{
-    background-color: black;
+    background-color: goldenrod;
     color: white;
     margin: 0;
     display: block;
@@ -35,3 +35,37 @@ nav ul{
     transition: 0.3s;
     width: 40px;
   } */
+
+
+  .footer ul{
+      background-color: gray;
+      color: white;
+      margin: 0;
+      text-align: center;
+  }
+
+  /* .footer ul li{
+      text-decoration: none;
+  } */
+
+  /* SHOW PAGE */
+
+  .show-container{
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      
+  }
+
+  .show-card{
+      /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+      border: 1px solid black;
+      text-align: center;
+      width: 40%;
+      transition: 0.3s;
+  }
+  .show-card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+
+ 
