@@ -107,7 +107,13 @@ app.put('/fund/:id', (req, res) => {
         res.redirect('/fund')
     })
 })
+
 // DELETE
+app.delete('/fund/:id', (req, res) => {
+    Fund.findByIdAndRemove(req.params.id, (err, deleteFund) => {
+        res.redirect('/fund')
+    })
+})
 
 // DONATION
 //___________________

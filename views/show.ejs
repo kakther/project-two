@@ -24,7 +24,11 @@
             <p>AMOUNT: $<%= fund.amount%> </p>
 
             <a href="/fund/<%=fund.id%>/edit">Edit the Charity</a>
+            
         </div>
+        <form action="/fund/<%=fund.id%>?_method=DELETE" method="POST">
+            <button type="submit" class="delete-button">DELETE</button>
+        </form>
     </div>
    
 </body>
