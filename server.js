@@ -116,11 +116,19 @@ app.delete('/fund/:id', (req, res) => {
 })
 
 // DONATION
-//___________________
-//localhost:3000
-// app.get('/' , (req, res) => {
-//   res.send('Hello World!');
-// });
+app.put('/fun/donate/:id', (req, res) => {
+    Fund.findBy(req.params.id, (err, donateFund) => {
+        res.redirect('/fund')
+    })
+})
+
+// INFO
+app.put('/fund/info/:id', (req, res) => {
+    Fund.findBy(req.params.id, (err, infoFund) => {
+        res.render('/fund/show')
+
+    })
+})
 
 
 //Listener

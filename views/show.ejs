@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
+
     <link rel="stylesheet" href="/css/app.css">
 
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
     <nav>
@@ -23,13 +24,24 @@
             <h5><%= fund.address%> </h5>
             <p>AMOUNT: $<%= fund.amount%> </p>
 
+            <!-- EDIT BUTTON -->
             <a href="/fund/<%=fund.id%>/edit">Edit the Charity</a>
-            
+
+            <!-- DONATE BUTTON -->
+            <form action="/fund/donate<%=fund.id%>?_method=PUT" method="POST">
+                <button type="submit" class="donate-button">DONATE NOW</button>
+                <!-- <input type="submit" class="donate-button" value="DONATE NOW"/> -->
+            </form>
         </div>
+
+        <!-- DELETE BUTTON -->
         <form action="/fund/<%=fund.id%>?_method=DELETE" method="POST">
             <button type="submit" class="delete-button">DELETE</button>
         </form>
     </div>
-   
+
+   <div class="footer">
+        <%- include ('../partials/footer.ejs') %>
+    </div>
 </body>
 </html>

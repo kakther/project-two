@@ -2,24 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
+    <link rel="stylesheet" href="/css/app.css">
+
     <title></title>
 </head>
 <body>
-    <h1>Edit Page</h1>
-    <form action="/fund/<%=edit.id%>?_method=PUT" method="POST">
-        Name: <input type="text" name="name" value="<%=edit.name%>"/><br>
-        Description: <input type="text" name="description" value="<%=edit.description%>"/><br>
-        Amount: <input type=number name=amount value="<%=edit.amount%>" /> <br>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
 
-        Is Ready To Edit:
-            <input type="checkbox" 
-            name="readyToEdit"
-            <% if(edit.readyToEdit === false) {%> 
-            checked
-            <% } %> 
-            /><br/>
-            <input type="submit" value="Edit the charity"/>
-    </form>
+    <div class="edit-container">
+        <h1>Edit Page</h1>
+        <form action="/fund/<%=edit.id%>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%=edit.name%>"/><br>
+            Description: <input type="text" name="description" value="<%=edit.description%>"/><br>
+            Amount: <input type=number name=amount value="<%=edit.amount%>" /> <br>
+    
+            Is Ready To Edit:
+                <input type="checkbox" 
+                name="readyToEdit"
+                <% if(edit.readyToEdit === false) {%> 
+                checked
+                <% } %> 
+                /><br/>
+                <input type="submit" value="Edit the charity"/>
+        </form>
+    </div>
+     <div class="footer">
+        <%- include ('../partials/footer.ejs') %>
+    </div>
 </body>
 </html>

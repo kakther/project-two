@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
+
     <link rel="stylesheet" href="/css/app.css">
 
     
@@ -18,23 +21,31 @@
         <h1>Welcome to ZHARAFUND!</h1>
 
         <p>Conneting awesome donors with good causes</p>
-        <h2>
+        <h3>
             The Reward of Goodnes <br/> is Nothing but Goodness
-        </h2> 
+        </h3> 
     </div>
-
+    <div class="join-org">
+        <h5>RECENTLY JOINED ORGANIZATIONs</h5>
+    </div>
     <div class="container">
         <div class="card">
             <ul>
                 <li>
                     <% for(let i = 0; i < fund.length; i++){ %> 
                         <a href="/fund/<%= fund[i].id; %> ">
+                            
                         <h3><%= fund[i].name %> </h3>
                         </a>
                         <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> 
                         <h2><%= fund[i].name%> </h2>
                         <p><%= fund[i].address%> </p>
-                        <button>INFO</button>
+
+
+                        <form action="/fund/<%=fund.id%>?_method=PUT" method="POST">
+                            <button type="submit" class="info-button">INFO</button>
+                        </form>
+                        
                        
 
                 </li>
@@ -43,7 +54,7 @@
         </div>   
     </div>
     <div class="message">
-        <h1>GIVING IS A NEVER-ENDING DEED</h1>
+        <h2>GIVING IS A NEVER-ENDING DEED</h2>
         <P>
             Those who spend their wealth in charity day and night, secretly and openly--their <br>
             reward is with their Lord, and there will be no fear for them, nor will they grieve.

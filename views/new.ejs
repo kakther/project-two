@@ -2,11 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
+    <link rel="stylesheet" href="/css/app.css">
+
+    <title></title>
 </head>
 <body>
+    <nav>
+        <%- include ('../partials/nav.ejs') %>
+    </nav>
     <div class="new-container">
-        <h1>New Orizination</h1>
+        <h1>Add Organization</h1>
         Img:  <input type="text" name="img"><br>
         Name: <input type="text" name="name"/><br>
         Description: <input type="text" name="description"/><br>
@@ -16,6 +23,10 @@
 
             <input type="submit" name="" value="Create">
         </form>
+    </div>
+
+    <div class="footer">
+        <%- include ('../partials/footer.ejs') %>
     </div>
 </body>
 </html>
