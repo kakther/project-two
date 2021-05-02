@@ -1,12 +1,18 @@
 const express = require('express');
-const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
+const methodOverride  = require('method-override');
+const app = express ();
+
+
+
+
 
 //CONFIGURATION
 require('dotenv').config()
-const app = express ();
 const db = mongoose.connection;
-const Fund = require('./models/fund.js')
+const fundController = require('./controllers/fund.js');
+app.use(fundController);
+// const Fund = require('./models/fund.js')
 const PORT = process.env.PORT || 3003;
 
 
@@ -39,96 +45,6 @@ app.use(express.static('public'));
 
 
 
-//___________________
-// Routes
-
-// INDEX
-app.get('/fund', (req, res) => {
-    Fund.find({}, (err, allFund) => {
-        res.render(
-            'index.ejs', {
-                fund: allFund
-            
-        });
-    })
-})
-// NEW 
-
-app.get('/fund/new', (req, res) => {
-    res.render(
-        'new.ejs',
-        )
-})
-
-// SHOW
-app.get('/fund/:id', (req, res) => {
-    Fund.findById(req.params.id, (err, foundFund) => {
-        res.render('show.ejs',
-         {
-             fund: foundFund
-         })
-    })
-})
-
-
-// GET EDIT
-app.get('/fund/:id/edit', (req, res) => {
-    Fund.findById(req.params.id, (err, foundFund) => {
-        res.render(
-            'edit.ejs',
-            {
-                edit: foundFund
-            }
-            )
-    })
-})
-
-// CREATE 
-app.post('/fund', (req, res) => {
-    Fund.create(req.body, (err, createOrganization) => {
-// if(err){
-//     console.log(err)
-// }else{
-//     console.log(createOrganization)
-// }
-        res.redirect('/fund')
-    })
-})
-
-// UPDATE(PUT)
-app.put('/fund/:id', (req, res) => {
-    // console.log('hello', req.body)
-    Fund.findByIdAndUpdate(req.params.id, req.body, (err, foundFund) => {
-        // if(err){
-        //     console.log(err);
-        // }else{
-        //     console.log(foundProduct)
-        // }
-        res.redirect('/fund')
-    })
-})
-
-// DELETE
-app.delete('/fund/:id', (req, res) => {
-    Fund.findByIdAndRemove(req.params.id, (err, deleteFund) => {
-        res.redirect('/fund')
-    })
-})
-
-// DONATION
-app.put('/fun/donate/:id', (req, res) => {
-    Fund.findBy(req.params.id, (err, donateFund) => {
-        res.redirect('/fund')
-    })
-})
-
-// INFO
-app.put('/fund/info/:id', (req, res) => {
-    Fund.findBy(req.params.id, (err, infoFund) => {
-        res.render('/fund/show')
-
-    })
-})
 
 
 //Listener

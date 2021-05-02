@@ -1,103 +1,117 @@
-// const express = require('express');
-// // const router = express.Router();
-// const app = express ();
+const express = require('express');
+const router = express.Router();
+const Fund = require('../models/fund.js');
 
-// const Fund = require('../models/fund.js')
 
-// //___________________
-// // Routes
 
-// // INDEX
-// app.get('/fund', (req, res) => {
-//     Fund.find({}, (err, allFund) => {
-//         res.render(
-//             'index.ejs', {
-//                 fund: allFund
+
+// INDEX
+router.get('/fund', (req, res) => {
+    Fund.find({}, (err, allFund) => {
+        res.render(
+            'index.ejs', {
+                fund: allFund
             
-//         });
-//     })
-// })
-// // NEW 
+        });
+    })
+})
+// NEW 
 
-// app.get('/fund/new', (req, res) => {
-//     res.render(
-//         'new.ejs',
-//         )
-// })
+router.get('/fund/new', (req, res) => {
+    res.render(
+        'new.ejs',
+        )
+})
 
-// // SHOW
-// app.get('/fund/:id', (req, res) => {
-//     Fund.findById(req.params.id, (err, foundFund) => {
-//         res.render('show.ejs',
-//          {
-//              fund: foundFund
-//          })
-//     })
-// })
+// SHOW
+router.get('/fund/:id', (req, res) => {
+    Fund.findById(req.params.id, (err, foundFund) => {
+        res.render('show.ejs',
+         {
+             fund: foundFund
+         })
+    })
+})
 
 
-// // GET EDIT
-// app.get('/fund/:id/edit', (req, res) => {
-//     Fund.findById(req.params.id, (err, foundFund) => {
-//         res.render(
-//             'edit.ejs',
-//             {
-//                 edit: foundFund
-//             }
-//             )
-//     })
-// })
+// GET EDIT
+router.get('/fund/:id/edit', (req, res) => {
+    Fund.findById(req.params.id, (err, foundFund) => {
+        res.render(
+            'edit.ejs',
+            {
+                edit: foundFund
+            }
+            )
+    })
+})
 
-// // CREATE 
-// app.post('/fund', (req, res) => {
-//     Fund.create(req.body, (err, createOrganization) => {
+// CREATE 
+router.post('/fund', (req, res) => {
+    Fund.create(req.body, (err, createOrganization) => {
 // if(err){
 //     console.log(err)
 // }else{
 //     console.log(createOrganization)
 // }
-//         res.redirect('/fund')
-//     })
-// })
+        res.redirect('/fund')
+    })
+})
 
+// UPDATE(PUT)
+router.put('/fund/:id', (req, res) => {
+    // console.log('hello', req.body)
+    Fund.findByIdAndUpdate(req.params.id, req.body, (err, foundFund) => {
+        // if(err){
+        //     console.log(err);
+        // }else{
+        //     console.log(foundProduct)
+        // }
+        res.redirect('/fund')
+    })
+})
 
-// // if(err){
-// //     console.log(err)
-// // }else{
-// //     console.log(createOrganization)
-// // }
-// // UPDATE(PUT)
-// app.put('/fund/:id', (req, res) => {
-//     // console.log('hello', req.body)
-//     Fund.findByIdAndUpdate(req.params.id, req.body, (err, foundFund) => {
-//         if(err){
-//             console.log(err);
-//         }else{
-//             console.log(foundProduct)
-//         }
-//         res.redirect('/fund')
-//     })
-// })
-// // DELETE
-// // DONATION
-// // // INDEX
-// // router.get('/', (req, res) => {
-// //     res.render('index.ejs');
-// // })
-// // // NEW 
-// // // SHOW
-// // // GET EDIT
-// // // CREATE 
-// // // UPDATE(PUT)
-// // // DELETE
-// // // DONATION
+// DELETE
+router.delete('/fund/:id', (req, res) => {
+    Fund.findByIdAndRemove(req.params.id, (err, deleteFund) => {
+        res.redirect('/fund')
+    })
+})
 
+// DONATION
+router.put('/fun/donate/:id', (req, res) => {
+    Fund.findBy(req.params.id, (err, donateFund) => {
+        res.redirect('/fund')
+    })
+})
 
+// INFO
+router.put('/fund/info/:id', (req, res) => {
+    Fund.findBy(req.params.id, (err, infoFund) => {
+        res.render('/fund/show')
 
-
-
-
+    })
+})
 
 
 
-// module.exports = router;
+
+
+// INDEX
+// NEW 
+// SHOW
+// GET EDIT
+// CREATE 
+// UPDATE(PUT)
+// DELETE
+// DONATION
+
+
+
+
+
+
+
+
+
+module.exports = router;
