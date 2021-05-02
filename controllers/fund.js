@@ -49,11 +49,11 @@ router.get('/fund/:id/edit', (req, res) => {
 // CREATE 
 router.post('/fund', (req, res) => {
     Fund.create(req.body, (err, createOrganization) => {
-// if(err){
-//     console.log(err)
-// }else{
-//     console.log(createOrganization)
-// }
+if(err){
+    console.log(err)
+}else{
+    console.log(createOrganization)
+}
         res.redirect('/fund')
     })
 })
@@ -79,7 +79,7 @@ router.delete('/fund/:id', (req, res) => {
 })
 
 // DONATION
-router.put('/fun/donate/:id', (req, res) => {
+router.put('/fund/donate/:id', (req, res) => {
     Fund.findBy(req.params.id, (err, donateFund) => {
         res.redirect('/fund')
     })
@@ -92,23 +92,6 @@ router.put('/fund/info/:id', (req, res) => {
 
     })
 })
-
-
-
-
-
-// INDEX
-// NEW 
-// SHOW
-// GET EDIT
-// CREATE 
-// UPDATE(PUT)
-// DELETE
-// DONATION
-
-
-
-
 
 
 

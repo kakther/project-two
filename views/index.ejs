@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/app.css">
 
     
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
     <nav>
@@ -29,29 +29,27 @@
         <h5>RECENTLY JOINED ORGANIZATIONs</h5>
     </div>
     <div class="container">
-        <div class="card">
-            <ul>
-                <li>
-                    <% for(let i = 0; i < fund.length; i++){ %> 
-                        <a href="/fund/<%= fund[i].id; %> ">
-                            
+        <ul class="organization-list">
+            <% for(let i = 0; i < fund.length; i++){ %>                             
+                <li class="organization">
                         <h3><%= fund[i].name %> </h3>
-                        </a>
                         <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> 
-                        <h2><%= fund[i].name%> </h2>
                         <p><%= fund[i].address%> </p>
 
 
                         <form action="/fund/<%=fund.id%>?_method=PUT" method="POST">
-                            <button type="submit" class="info-button">INFO</button>
-                        </form>
+                            <!-- <button type="submit" class="info-button"> -->
+
+                                <a href="/fund/<%=fund[i].id%>" class="info-button">INFO</a>
+                           
+                        </form> 
                         
                        
 
                 </li>
-                    <% } %> 
-            </ul>
-        </div>   
+            <% } %> 
+         
+        </ul>
     </div>
     <div class="message">
         <h2>GIVING IS A NEVER-ENDING DEED</h2>
