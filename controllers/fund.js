@@ -3,15 +3,16 @@ const router = express.Router();
 const Fund = require('../models/fund.js');
 
 
+// router.set('view engine', 'ejs');
+
+
+
 
 
 // INDEX
-router.get('/', function(req, res) {
-    //when we get an http get request to the root/homepage
-    res.send("Hello World");
-  });
 
-router.get('/fund', (req, res) => {
+
+router.get('/', (req, res) => {
     Fund.find({}, (err, allFund) => {
         res.render(
             'index.ejs', {
