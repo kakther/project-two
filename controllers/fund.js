@@ -3,16 +3,9 @@ const router = express.Router();
 const Fund = require('../models/fund.js');
 
 
-// router.set('view engine', 'ejs');
-
-
-
-
 
 // INDEX
-
-
-router.get('/', (req, res) => {
+router.get('/fund', (req, res) => {
     Fund.find({}, (err, allFund) => {
         res.render(
             'index.ejs', {
@@ -54,7 +47,7 @@ router.get('/fund/:id/edit', (req, res) => {
 
 // CREATE 
 router.post('/fund', (req, res) => {
-    console.log('form data', req.body)
+    // console.log('form data', req.body)
     Fund.create(req.body, (err, createOrganization) => {
 // if(err){
 //     console.log(err)
@@ -67,7 +60,7 @@ router.post('/fund', (req, res) => {
 
 // UPDATE(PUT)
 router.put('/fund/:id', (req, res) => {
-    // console.log('hello', req.body)
+    console.log('hello', req.body)
     Fund.findByIdAndUpdate(req.params.id, req.body, (err, foundFund) => {
         // if(err){
         //     console.log(err);
@@ -81,6 +74,8 @@ router.put('/fund/:id', (req, res) => {
 // DELETE
 router.delete('/fund/:id', (req, res) => {
     Fund.findByIdAndRemove(req.params.id, (err, deleteFund) => {
+        console.log(err)
+        console.log(deleteFund)
         res.redirect('/fund')
     })
 })

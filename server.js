@@ -5,9 +5,11 @@ const app = express ();
 
 
 
+//Middleware
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json());
+app.use(methodOverride('_method'));
 //CONFIGURATION
 require('dotenv').config()
 const db = mongoose.connection;
@@ -33,9 +35,9 @@ db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 
-//Middleware
-app.use(express.json());
-app.use(methodOverride('_method'));
+// //Middleware
+// app.use(express.json());
+// app.use(methodOverride('_method'));
 
 
 //use public folder for static assets
