@@ -5,7 +5,7 @@ const Fund = require('../models/fund.js');
 
 
 // INDEX
-router.get('/fund', (req, res) => {
+router.get('/', (req, res) => {
     Fund.find({}, (err, allFund) => {
         res.render(
             'index.ejs', {
