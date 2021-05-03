@@ -3,25 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
     <link rel="stylesheet" href="/css/app.css">
 
     <title></title>
 </head>
+
 <body>
     <nav>
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <div class="new-container">
-        <h1>Add Organization</h1>
-        Img:  <input type="text" name="img"><br>
-        Name: <input type="text" name="name"/><br>
-        Description: <input type="text" name="description"/><br>
-        Address: <input type="text" name="address"/><br>
-        Amount: <input type="number" name="amount"/><br>
+        <h1>Add a New Organization</h1>
         <form action="/fund" method="POST">
+            Img:  <input type="text" name="img" /><br>
+            Name: <input type="text" name="name"/><br>
+            Description: <input type="text" name="description"/><br>
+            Address: <input type="text" name="address"/><br>
+            Amount: <input type="number" name="amount"/><br>
 
-            <input type="submit" name="" value="Create">
+
+            <input type="submit" name="" value="Create"/>
         </form>
     </div>
 

@@ -48,12 +48,11 @@ router.get('/fund/:id/edit', (req, res) => {
 
 // CREATE 
 router.post('/fund', (req, res) => {
+    console.log('form data', req.body)
     Fund.create(req.body, (err, createOrganization) => {
-if(err){
-    console.log(err)
-}else{
-    console.log(createOrganization)
-}
+// if(err){
+//     console.log(err)
+// }
         res.redirect('/fund')
     })
 })
