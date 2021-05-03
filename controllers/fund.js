@@ -6,6 +6,11 @@ const Fund = require('../models/fund.js');
 
 
 // INDEX
+router.get('/', function(req, res) {
+    //when we get an http get request to the root/homepage
+    res.send("Hello World");
+  });
+
 router.get('/fund', (req, res) => {
     Fund.find({}, (err, allFund) => {
         res.render(
@@ -52,6 +57,8 @@ router.post('/fund', (req, res) => {
     Fund.create(req.body, (err, createOrganization) => {
 // if(err){
 //     console.log(err)
+// }else{
+//     console.log(createOrganization)
 // }
         res.redirect('/fund')
     })

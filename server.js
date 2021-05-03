@@ -6,6 +6,7 @@ const app = express ();
 
 
 
+app.use(express.urlencoded({ extended: true }));
 
 //CONFIGURATION
 require('dotenv').config()
@@ -33,7 +34,6 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 
 
 //Middleware
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
