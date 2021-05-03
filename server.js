@@ -15,6 +15,9 @@ require('dotenv').config()
 const db = mongoose.connection;
 const fundController = require('./controllers/fund.js');
 app.use(fundController);
+// // AUTH 
+// const userController = require('./controllers/users_controllers.js');
+// app.use('/users', userController);
 const PORT = process.env.PORT || 3003;
 
 

@@ -5,7 +5,7 @@ const Fund = require('../models/fund.js');
 
 
 // INDEX
-router.get('/', (req, res) => {
+router.get('/fund', (req, res) => {
     Fund.find({}, (err, allFund) => {
         res.render(
             'index.ejs', {
@@ -16,14 +16,14 @@ router.get('/', (req, res) => {
 })
 // NEW 
 
-router.get('/new', (req, res) => {
+router.get('/fund/new', (req, res) => {
     res.render(
         'new.ejs',
         )
 })
 
 // SHOW
-router.get('/:id', (req, res) => {
+router.get('/fund/:id', (req, res) => {
     Fund.findById(req.params.id, (err, foundFund) => {
         res.render('show.ejs',
          {
@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
 
 
 // GET EDIT
-router.get('/:id/edit', (req, res) => {
+router.get('/fund/:id/edit', (req, res) => {
     Fund.findById(req.params.id, (err, foundFund) => {
         res.render(
             'edit.ejs',
@@ -46,7 +46,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // CREATE 
-router.post('/', (req, res) => {
+router.post('/fund', (req, res) => {
     // console.log('form data', req.body)
     Fund.create(req.body, (err, createOrganization) => {
 // if(err){
@@ -59,7 +59,7 @@ router.post('/', (req, res) => {
 })
 
 // UPDATE(PUT)
-router.put('/:id', (req, res) => {
+router.put('/fund/:id', (req, res) => {
     console.log('hello', req.body)
     Fund.findByIdAndUpdate(req.params.id, req.body, (err, foundFund) => {
         // if(err){
@@ -72,7 +72,7 @@ router.put('/:id', (req, res) => {
 })
 
 // DELETE
-router.delete('/:id', (req, res) => {
+router.delete('/fund/:id', (req, res) => {
     Fund.findByIdAndRemove(req.params.id, (err, deleteFund) => {
         console.log(err)
         console.log(deleteFund)
@@ -81,7 +81,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // DONATION
-router.put('/donate/:id', (req, res) => {
+router.put('/fund/donate/:id', (req, res) => {
     Fund.findBy(req.params.id, (err, donateFund) => {
         res.redirect('/fund')
     })
