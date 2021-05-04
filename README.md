@@ -1,7 +1,9 @@
 # project-two
+
+https://imgur.com/rsPcudw
 # Introduction
 
-This app is a deliverable for an assignment in for my General Assembly curriculum for HTML, CSS, JavaScript, ejs, and mongoDB. The goal is to create a Donation app where user will be able to add a new charity. User will have prevribles to edit and delete origization. 
+This app is a deliverable for an assignment in for my General Assembly curriculum for HTML, CSS, JavaScript, ejs, and mongoDB. The goal is to create a Donation app where user will be able to add a new charity. User will have prevribles to edit and delete origization if they want. 
 
 See Appendix A: Assignment from General Assembly for more information.
 
@@ -10,11 +12,11 @@ The version of this app currently uploaded is 1.0.0. In cases where I update the
 
 # Instructions for User
 
-
+Go to the app in the homepage left side click on the "Add a new charity" link to add a new origization. User should be able to add a new charity. The new origization should be displayed in the homepage...
 
 
 # Live site link: 
-
+https://github.com/kakther/project-two
 
 This app uses:
 
