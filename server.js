@@ -49,7 +49,10 @@ app.use(express.static('public'));
 
 
 
-
+app.get('/', (req, res) => {
+    res.redirect('/fund')
+  })
+  
 
 //Listener
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
