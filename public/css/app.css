@@ -199,6 +199,8 @@ p{
  /* NEW ROUTE  */
  .new-container{
      text-align: center;
+     margin-top: 100px;
+     margin-bottom: 200px;
 
  }
 
@@ -224,7 +226,9 @@ input[type=text], select {
 }
 
  .edit-container{
-     text-align: center;
+    margin-top: 100px;
+    margin-bottom: 270px;
+    text-align: center;
  }
 
  .col-sm{
