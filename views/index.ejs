@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">  
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
 
     
@@ -15,14 +17,18 @@
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <div class="header">
+        <div class="header-text">
         <h1>Welcome to ZHARAFUND!</h1>
 
         <p>Conneting awesome donors with good causes</p>
         <h3>
-            The Reward of Goodnes <br/> is Nothing but Goodness
+            The Reward of Goodnes is Nothing but Goodness
         </h3> 
+       
+    </div>
     </div>
     <nav class='add-new-charity'>
+        
         <a href="/fund/new">Add a New Charity</a>
     </nav>
     <div class="join-org">

@@ -1,7 +1,30 @@
 .header{
-    background-color: lightgreen;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAhr55bgE42ucRNG_uqvabb6VlDe-8UJqtdA&usqp=CAU');
+    height: 45vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: 50% 50%; 
     color: white;
-    text-align: center;
+   
+}
+
+
+
+.header-text{
+    color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
 body{
     margin: 0;
@@ -14,6 +37,7 @@ body{
     color: white;
     margin: 0;  
     width: 100%;
+    border: 2px solid green;
          
 }
 
@@ -87,6 +111,7 @@ p{
     position: relative;
     margin-bottom: .5rem;
     margin-left: 1rem;
+
 }
 
 
@@ -125,7 +150,7 @@ p{
 
   .show-card{
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      /* border: 1px solid black; */
+      border: 1px solid black;
       text-align: center;
       width: 40%;
       transition: 0.3s;
@@ -189,6 +214,13 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 
+}
+
+.divider{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1300px;
+    border : 2px solid;
 }
 
  .edit-container{

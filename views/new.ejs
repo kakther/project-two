@@ -14,17 +14,19 @@
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <div class="new-container">
-        <h1>Add a New Organization</h1>
+        <h1>Add A New Organization</h1>
+        <hr class="divider"/>
         <div>
             <form action="/fund" method="POST">
                 <input type="text" name="img" placeholder="Image of the new organization"/><br>
                 <input type="text" name="name" placeholder="Name of the organization"/><br>
                 <input type="text" name="description" placeholder="Description of the organization"/><br>
                 <input type="text" name="address" placeholder="Address of the organization"/><br>
-                Amount: <input type="number" name="amount"/><br>
+                AMOUNT: <input type="number" name="amount"/><br>
                 <input type="submit" name="" value="Create"/>
             </form>
         </div>
+
     </div>
 
     <div class="footer">
