@@ -21,18 +21,18 @@
         <%- include ('../partials/nav.ejs') %>
     </nav>
     <nav>
-        <a href="/fund/">Back to Charity</a>
+        <a class="back-to-charity-button" href="/fund/">Back to Charity</a>
     </nav>
     <div class="show-container">
         <div class="show-card">
-            <img src="<%= fund.img%> " alt="">
-            <h2><%= fund.name%> </h2>
+            <img class="img" src="<%= fund.img%> " alt="">
+            <h3><%= fund.name%> </h3>
             <p><%= fund.description%> </p>
             <h5><%= fund.address%> </h5>
             <p>AMOUNT: $<%= fund.amount%> </p>
 
             <!-- EDIT BUTTON -->
-            <a href="/fund/<%=fund.id%>/edit">Edit the Charity</a>
+            <a class="edit-button" href="/fund/<%=fund.id%>/edit">Edit the Charity</a>
 
             <!-- DONATE BUTTON -->
             <form action="/fund/donate<%=fund.id%>?_method=PUT" method="POST">

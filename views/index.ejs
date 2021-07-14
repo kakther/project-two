@@ -20,7 +20,7 @@
         <div class="header-text">
         <h1>Welcome to ZHARAFUND!</h1>
 
-        <p>Conneting awesome donors with good causes</p>
+        <p>Raise Money For Anything</p>
         <h3>
             The Reward of Goodnes is Nothing but Goodness
         </h3> 
@@ -41,8 +41,8 @@
                         <h3><%= fund[i].name %> </h3>
                         <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> 
                         <p><%= fund[i].address%> </p>
-
-
+                        <h2>$<%= fund[i].amount%> </h2>
+ 
                         <form action="/fund/<%=fund.id%>?_method=PUT" method="POST">
                             <!-- <button type="submit" class="info-button"> -->
 
