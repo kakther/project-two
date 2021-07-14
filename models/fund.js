@@ -5,7 +5,9 @@ const fundSchema = new mongoose.Schema(
         name: String, 
         description: String,
         img: String,
-        address: String, 
+        address: String,
+        city: String,
+        state: String,
         amount: Number
     },
     {timestamps: true}
