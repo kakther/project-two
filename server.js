@@ -1,58 +1,81 @@
+///////////////////////////////////
+////// DEPENDENCIES
+///////////////////////////////////
 const express = require('express');
-const mongoose = require ('mongoose');
 const methodOverride  = require('method-override');
-const app = express ();
+const mongoose = require ('mongoose');
+const session = require('express-session')
 
 
-
-//Middleware
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(methodOverride('_method'));
-//CONFIGURATION
+///////////////////////////////////
+////// CONFIG
+///////////////////////////////////
 require('dotenv').config()
+
+const app = express ();
 const db = mongoose.connection;
-const fundController = require('./controllers/fund.js');
-app.use(fundController);
-// // AUTH 
-// const userController = require('./controllers/users_controllers.js');
-// app.use('/users', userController);
+
+///////////////////////////////////
+////// PORT
+///////////////////////////////////
+
 const PORT = process.env.PORT || 3003;
 
 
-// DATABASE
+///////////////////////////////////
+////// MIDDLEWARE
+///////////////////////////////////
+//use public folder for static assets
+app.use(express.static('public'));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// allow POST, PUT and DELETE from a form
+app.use(methodOverride('_method'));
+
+
+// app.use(session({
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: false
+//   })
+// )
+
+///////////////////////////////////
+//////// CONTROLLERS 
+//////////////////////////////////
+const fundController = require('./controllers/fund.js');
+app.use(fundController);
+
+
+
+// // AUTH 
+// const userController = require('./controllers/users_controllers.js');
+// app.use('/users', userController);
+
+
+///////////////////////////////////
+//////// DATABASE
+//////////////////////////////////
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
-mongoose.connect(MONGODB_URI , 
-    { 
-        useNewUrlParser: true, 
-        useUnifiedTopology: true, 
-        useFindAndModify: false 
-    }
-);
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
-// Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 
-// //Middleware
-// app.use(express.json());
-// app.use(methodOverride('_method'));
 
-
-//use public folder for static assets
-app.use(express.static('public'));
-
-
-
-
+///////////////////////////////////
+//////// WELCOME ROUTE
+//////////////////////////////////
 app.get('/', (req, res) => {
     res.redirect('/fund')
   })
   
 
-//Listener
+///////////////////////////////////
+//////// LISTENER
+//////////////////////////////////
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));

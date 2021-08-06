@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+
     <link rel="stylesheet" href="/css/app.css">
 
     
@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav>
-        <%- include ('../partials/nav.ejs') %>
+        <%-include('../partials/nav.ejs') %>
     </nav>
     <div class="header">
         <div class="header-text">
@@ -27,28 +27,47 @@
        
     </div>
     </div>
-    <nav class='add-new-charity'>
+    <section class="ready-to-add">
+        <div class="home-section-content">
+            <div class="ready-to-add-inner">
+                <div class="ready-to-add-left show-on-dektop">
+                    <h2>Ready to add a Orginization?</h2>
+                    <p>No signups required. Free for any orinization use!</p>
+                </div>
+                <div class="ready-to-add-right show-on-dektop">
+
+                </div>
+                <nav class='add-new-charity'>
+            
+                    <a href="/fund/new">Add a New Charity</a>
+                </nav>
+    
+            </div>
+        </div>
         
-        <a href="/fund/new">Add a New Charity</a>
-    </nav>
+    </section>
+    
     <div class="join-org">
-        <h5>RECENTLY JOINED ORGANIZATIONS</h5>
+        <h5 class="h1-root">RECENTLY JOINED ORGANIZATIONS</h5>
     </div>
-    <div class="container">
+    <div class="main-container">
         <ul class="organization-list">
             <% for(let i = 0; i < fund.length; i++){ %>                             
                 <li class="organization">
-                        <h3><%= fund[i].name %> </h3>
-                        <img src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%> "> 
-                        <p><%= fund[i].address%> </p>
-                        <h2>$<%= fund[i].amount%> </h2>
+                        <img class="card-img" src="<%= fund[i].img%> " alt="Picture of <%= fund[i].name%>"> 
+                        <div class="card-content">
+                            <h3 class="card-header"><%= fund[i].name %> </h3>
+                            <p class="card-text"><%= fund[i].address%> </p>
+                            <h2>$<%= fund[i].amount%> </h2>
  
-                        <form action="/fund/<%=fund.id%>?_method=PUT" method="POST">
+                            <form action="/fund/<%=fund.id%>?_method=PUT" method="POST">
                             <!-- <button type="submit" class="info-button"> -->
-
-                                <a href="/fund/<%=fund[i].id%>" class="info-button">INFO</a>
-                           
-                        </form> 
+                               
+                                    <a href="/fund/<%=fund[i].id%>" class="info-button">INFO</a>
+                                
+                            </form> 
+                        </div>
+                        
                         
                        
 
@@ -57,13 +76,16 @@
          
         </ul>
     </div>
-    <div class="message">
-        <h2>GIVING IS A NEVER-ENDING DEED</h2>
-        <P>
-            Those who spend their wealth in charity day and night, secretly and openly--their <br>
-            reward is with their Lord, and there will be no fear for them, nor will they grieve.
-        </P>
-    </div>
+    <section class="message">
+        <div class="message-container">
+            <h2>The most effective fundraising platfor for any organization, globally</h2>
+            <h1>Be a life changer!</h1>
+            <div class="ready-to-add-left show-on-dektop">
+            <p>What you seek is seeking you? <br/>
+                - Mawlana Rumi</p>
+            </div>    
+        </div>
+    </section>
     <div class="footer">
         <%- include ('../partials/footer.ejs') %>
     </div>
