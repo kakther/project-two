@@ -38,8 +38,8 @@
 
                 </div>
                 <nav class='add-new-charity'>
-            
-                    <a href="/fund/new">Add a New Charity</a>
+                    
+                    <a href="/fund/new" class="add-new-btn">add  new charity</a>
                 </nav>
     
             </div>
@@ -48,7 +48,8 @@
     </section>
     
     <div class="join-org">
-        <h5 class="h1-root">RECENTLY JOINED ORGANIZATIONS</h5>
+        <h5 class="recently-join">RECENTLY JOINED ORGANIZATIONS</h5>
+        <hr />
     </div>
     <div class="main-container">
         <ul class="organization-list">
@@ -58,12 +59,13 @@
                         <div class="card-content">
                             <h3 class="card-header"><%= fund[i].name %> </h3>
                             <p class="card-text"><%= fund[i].address%> </p>
-                            <h2>$<%= fund[i].amount%> </h2>
+                            <span class="amount">Funded of $<%= fund[i].amount%></span>
+                            <!-- <h3>Funded of $<%= fund[i].amount%> </h3> -->
  
                             <form action="/fund/<%=fund.id%>?_method=PUT" method="POST">
                             <!-- <button type="submit" class="info-button"> -->
                                
-                                    <a href="/fund/<%=fund[i].id%>" class="info-button">INFO</a>
+                                    <a href="/fund/<%=fund[i].id%>" class="support-btn">support now</a>
                                 
                             </form> 
                         </div>
@@ -81,7 +83,7 @@
             <h2>The most effective fundraising platfor for any organization, globally</h2>
             <h1>Be a life changer!</h1>
             <div class="ready-to-add-left show-on-dektop">
-            <p>What you seek is seeking you? <br/>
+            <p>What you seek is seeking you?
                 - Mawlana Rumi</p>
             </div>    
         </div>

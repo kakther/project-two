@@ -5,8 +5,71 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+   
+    background-color: azure;
+}
+/* ------------NAVBAR-------------*/
+.navbar ul{
+    /* display: flex;
+    width: 100%;
+
+    align-items: center;
+    background-color: #11182f;
+    color: white; */
+   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    font: 1em sans-serif;
+    background-color: #11182f;
+    color: white;
+
+}
+
+.navbar li{
+    list-style-type: none;
+    padding: 1rem;
+    
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-logo{
+    flex: 1;
+    font-size: 1.5rem;
+    user-select: none;
+    padding: 0;
+}
+
+.navbar-toggle {
+    display: none;
+}
+
+.navbar-links:hover{
+    background-color:#5dd8e4;
+}
+
+@media(max-width: 600px){
+    .navbar ul {
+        flex-wrap: wrap;
+    }
+    .navbar-toggle{
+        display: block;
+    }
+    .navbar-links{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* -----------HEADER MESSAGE -------------*/
 .header{
-    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAhr55bgE42ucRNG_uqvabb6VlDe-8UJqtdA&usqp=CAU'); */
     background-color: #11182f;
     height: 45vh;
     width: 100vw;
@@ -32,10 +95,7 @@
     flex-direction: column; 
     font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
-body{
-    margin: 0;
-    background-color: azure;
-}
+
 .nav{
     display: flex;
     justify-content: space-around; 
@@ -108,6 +168,34 @@ body{
     margin-top: 0;
 
 }
+
+.add-new-btn{
+
+    /* width: 130px; */
+     border: 1px solid #e4e8ec;
+     height: 40px;
+     background: #5dd8e4;
+     margin-top: 25px;
+     transition: .3s;
+     display: inline-block;
+     border-radius: 4px;
+     padding-top: 7px;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-size: 14px;
+     font-weight: 600;
+     color: #fff;
+     justify-content: center;
+     /* font-size: 2rem;
+     border-radius: 0.5rem;
+     font-weight: 400;
+     display: flex;
+     align-items: center;
+     text-decoration: none; */
+
+
+}
+
   .back-to-charity-button{
     text-decoration: none;
     display: flex;
@@ -118,19 +206,6 @@ body{
     height: 80%;
   }
 
-
-  .add-new-charity{
-      display: flex;
-      justify-content: center;
-      font-size: 20px;
-      font-family: "Roboto Condensed";
-
-  }
-
-  .add-new-charity a{
-      text-decoration: none;
-  }
-  
 
 p{
     margin: 0;
@@ -143,11 +218,20 @@ p{
     text-align: center;
 }
 
-.h1-root{
+.recently-join{
     line-height: 1.167;
     letter-spacing: -0.01562em;
+    padding: 20px;
 }
 
+hr{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1300px;
+    color: #11182f;
+    padding-bottom: 20px;
+    
+}
 
 .container{
     display: flex;
@@ -167,7 +251,9 @@ p{
 }
 .organization{
     width: 400px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background: #ffffff;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.2); */
+    border: 1px solid rgba(0, 0, 0, 0.12);
     background-color: white;
     text-align: center;
     position: relative;
@@ -176,6 +262,21 @@ p{
     font-family: "Roboto Condensed";
 }
 
+
+/* .cc-grid-cards{
+    position: relative;
+    width: 100%;
+    display: grid !important;
+    grid-auto-flow: column;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    grid-auto-columns: 32.8%;
+    overflow: hidden !important;
+    grid-gap: 8px;
+    padding: 0;
+    box-sizing: border-box;
+} */
+/* ---------------------- */
 
  ul{
     list-style-type: none;
@@ -207,14 +308,9 @@ p{
     margin-bottom: 2.5rem;
 }
 
-.card-btn{
-    display: block;
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 2rem;
-    text-align: center;
+.amount {
+    font-size: 25px;
 }
-
 
 
 
@@ -262,7 +358,7 @@ p{
 
  }
 
- .info-button{
+ /* .info-button{
      font: bold 15px arial;
      background-color: #EEEEEE;
      padding: 2px 6px 2px 6px;
@@ -271,14 +367,38 @@ p{
      border: 2px solid green;
      color: #333333;
      
+ } */
+
+ .support-btn{
+     width: 120px;
+     border: 1px solid #e4e8ec;
+     height: 33px;
+     background: #fff;
+     margin-top: 25px;
+     transition: .3s;
+     display: inline-block;
+     border-radius: 4px;
+     padding-top: 7px;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-size: 14px;
+     font-weight: 600;
+     color: #5dd8e4;
+
+ }
+ .support-btn.hover{
+    box-shadow: 0 8px 18px #5dd8e4;
+     background-color: #fff;
  }
 
+
+/* 
 .info-button.hover{
     box-shadow: 0 8px 18px rgba(0,0,0,0.2);
     background-color: green;
     color: white;
 
-}
+} */
 
  /* NEW ROUTE  */
  .new-container{
@@ -433,6 +553,8 @@ body .footer{
     background-color: #ffffff;
 }
 
+
+/* MEDIA  */
 @media(max-width: 767px){
     .footer-col{
         width: 50%;
