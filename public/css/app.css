@@ -12,13 +12,6 @@ body{
 }
 /* ------------NAVBAR-------------*/
 .navbar ul{
-    /* display: flex;
-    width: 100%;
-
-    align-items: center;
-    background-color: #11182f;
-    color: white; */
-   
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -74,8 +67,6 @@ body{
     height: 45vh;
     width: 100vw;
     position: relative;
-    background-size: cover;
-    background-position: 50% 50%; 
     color: white;
    
 }
@@ -92,9 +83,27 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    display: flex;
     flex-direction: column; 
     font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
 }
+
+.header-text h2{
+    font-size: 48px;
+    margin: 10px 0;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.48px;
+}
+
+
+/* @media (max-width) {
+    .header-text h2{
+        width: 100%;
+    }
+    
+} */
+
 
 .nav{
     display: flex;
@@ -222,6 +231,9 @@ p{
     line-height: 1.167;
     letter-spacing: -0.01562em;
     padding: 20px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.48px;
 }
 
 hr{
@@ -555,7 +567,15 @@ body .footer{
 
 
 /* MEDIA  */
-@media(max-width: 767px){
+@media(min-width: 600px) {
+    .header{
+        width: 100%;
+    }
+}
+
+
+
+/* @media(max-width: 767px){
     .footer-col{
         width: 50%;
         margin-bottom: 30px;
@@ -567,4 +587,4 @@ body .footer{
         width: 100%;
        
     }
-}
+} */
