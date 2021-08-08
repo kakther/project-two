@@ -97,12 +97,13 @@ body{
 }
 
 
-/* @media (max-width) {
+@media (max-width) {
     .header-text h2{
         width: 100%;
+        font-size: 32px;
     }
     
-} */
+}
 
 
 .nav{
@@ -177,11 +178,10 @@ body{
     margin-top: 0;
 
 }
-
+/* ---------ADD NEW */
 .add-new-btn{
 
-    /* width: 130px; */
-     border: 1px solid #e4e8ec;
+     /* border: 1px solid #e4e8ec; */
      height: 40px;
      background: #5dd8e4;
      margin-top: 25px;
@@ -195,15 +195,10 @@ body{
      font-weight: 600;
      color: #fff;
      justify-content: center;
-     /* font-size: 2rem;
-     border-radius: 0.5rem;
-     font-weight: 400;
-     display: flex;
-     align-items: center;
-     text-decoration: none; */
+     
 
 
-}
+} 
 
   .back-to-charity-button{
     text-decoration: none;
@@ -254,6 +249,7 @@ hr{
 .organization-list{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main-container{
@@ -269,9 +265,9 @@ hr{
     background-color: white;
     text-align: center;
     position: relative;
-    margin-bottom: .5rem;
-    margin-left: 1rem;
     font-family: "Roboto Condensed";
+    margin: 20px;
+
 }
 
 
@@ -437,7 +433,7 @@ input[type=text], select {
     width: 80%;
     margin: 0 auto;
     max-width: 1300px;
-    border : 2px solid;
+    
 }
 
  .edit-container{
@@ -481,6 +477,37 @@ input[type=text], select {
 }
 /* -------------FOOTER---------------- */
 
+/* .footer{
+    position: relative;
+    margin: auto;
+    padding-bottom: 2rem;
+    padding-top: 2.5rem;
+    overflow: hidden;
+    background-color: #fafafa;
+}
+
+@media(min-width: 50rem) {
+    .footer{
+        padding: 2.5rem 1rem;
+    }
+}
+
+.footer-container{
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+@media (min-width: 50rem){
+    .row-menu{
+        display: flex;
+    }
+}
+
+.row-menu{
+    justify-content: space-between;
+    font-size: ;
+} */
+
 body .footer{
     line-height: 1.5;
     font-family: 'Poppins', sans-serif;
@@ -494,6 +521,7 @@ body .footer{
 .row{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer{
@@ -537,7 +565,8 @@ body .footer{
     color: #ffffff;
     text-decoration: none;
     font-weight: 300;
-    color: #bbbbbb;
+    color: #4a90e2;
+    /* color: #bbbbbb; */
     display: block;
     transition: all 0.3s ease;
 }
@@ -567,11 +596,11 @@ body .footer{
 
 
 /* MEDIA  */
-@media(min-width: 600px) {
+/* @media(min-width: 600px) {
     .header{
         width: 100%;
     }
-}
+} */
 
 
 
