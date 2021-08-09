@@ -48,6 +48,9 @@ body{
     background-color:#5dd8e4;
 }
 
+ul{
+    margin-bottom: 0;
+}
 @media(max-width: 600px){
     .navbar ul {
         flex-wrap: wrap;
@@ -117,8 +120,8 @@ body{
     /* border: 2px solid green; */
          
 }
-
-.nav-links{
+/* --------OLD NAVBAR-------- */
+/* .nav-links{
     width: 20%;
     display: flex;
     justify-content: space-around;
@@ -135,7 +138,7 @@ body{
   }
  .nav li a {
     text-decoration: none;
-}
+} */
 
 
 /* --------ADD A CHARITY------------- */
