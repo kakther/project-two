@@ -121,7 +121,7 @@ ul{
          
 }
 /* --------OLD NAVBAR-------- */
-/* .nav-links{
+.nav-links{
     width: 20%;
     display: flex;
     justify-content: space-around;
@@ -138,7 +138,7 @@ ul{
   }
  .nav li a {
     text-decoration: none;
-} */
+}
 
 
 /* --------ADD A CHARITY------------- */
